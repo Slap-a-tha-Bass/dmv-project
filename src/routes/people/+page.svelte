@@ -3,5 +3,7 @@
 	//const { people } = data;
 </script>
 
-<h1>Manufacturers</h1>
-<!-- <h2>{people}</h2> -->
+<div class="col-span-3 p-2">
+	<h1>People</h1>
+	<!-- <h2>{people}</h2> -->
+</div>

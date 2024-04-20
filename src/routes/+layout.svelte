@@ -1,16 +1,11 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
+	import SideBarNav from '$lib/components/SideBarNav.svelte';
 	import '../app.css';
 </script>
 
 <Header />
-<aside>
-	<nav>
-		<ul>
-			<li><a href="/manufacturers">Manufacturers</a></li>
-			<li><a href="/vehicles">Vehicles</a></li>
-			<li><a href="/people">People</a></li>
-		</ul>
-	</nav>
-</aside>
-<slot />
+<div class="grid grid-cols-4">
+	<SideBarNav />
+	<slot />
+</div>

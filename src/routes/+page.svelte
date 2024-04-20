@@ -1,2 +1,4 @@
-<h1 class="text-lg text-blue-700">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="col-span-3 p-2">
+	<h1 class="text-lg text-indigo-700">Welcome to DMV</h1>
+	<p>This is a simple app to manage vehicles, manufacturers, and people.</p>
+</div>

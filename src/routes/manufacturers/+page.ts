@@ -1,5 +1,5 @@
 import type { PageLoadEvent } from './$types';
-import type { Manufacturer } from '../../app.d.ts';
+import type { Manufacturer } from '$lib/types';
 
 const BASE_URL = 'https://localhost:44357';
 
