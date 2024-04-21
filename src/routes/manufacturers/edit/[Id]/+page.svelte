@@ -6,23 +6,21 @@
 <div class="col-span-3 p-2">
 	<h1 class="text-xl">Edit Manufacturer</h1>
 	<form>
-		<label for="Manufacturer Name" class="block text-sm font-medium text-gray-700"
-			>Manufacturer Name</label
-		>
+		<label for="Name" class="block text-sm font-medium text-gray-700">Manufacturer Name</label>
 		<input
 			type="text"
-			name="Manufacturer Name"
-			id="Manufacturer Name"
+			name="Name"
+			id="Name"
 			class="w-full rounded-none border border-black px-2 outline-none focus:border-indigo-600"
 			value={manufacturer?.Name}
 		/>
-		<label for="County of Origin" class="block text-sm font-medium text-gray-700"
-			>County of Origin</label
+		<label for="CountryofOrigin" class="block text-sm font-medium text-gray-700"
+			>Country of Origin</label
 		>
 		<input
 			type="text"
-			name="County of Origin"
-			id="County of Origin"
+			name="CountryofOrigin"
+			id="CountryofOrigin"
 			class="w-full rounded-none border border-black px-2 outline-none focus:border-indigo-600"
 			value={manufacturer?.CountyOfOrigin}
 		/>
