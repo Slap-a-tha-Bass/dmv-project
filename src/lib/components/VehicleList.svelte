@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Vehicle } from '$lib/types/index';
+	import type { Vehicle } from '$lib/types';
 	import { convertDateFormat } from '$lib/helpers';
 	export let vehicles: Vehicle[] = [];
 </script>
@@ -10,7 +10,7 @@
 		<p class="text-sm">{convertDateFormat(vehicle.RegistrationExpiration)}</p>
 		<div class="flex justify-end gap-2">
 			<button class="bg-blue-500 px-2 py-1 font-bold text-white hover:bg-blue-700"
-				><a href={`/manufacturers/edit/${vehicle.Id}`}>Edit</a></button
+				><a href={`/vehicles/edit/${vehicle.Id}`}>Edit</a></button
 			>
 			<button class="delete bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-700"
 				>Delete</button

@@ -1,5 +1,5 @@
 export interface Manufacturer {
-	Id: string;
+	Id?: string;
 	Name: string;
 	CountyOfOrigin: string;
 }
