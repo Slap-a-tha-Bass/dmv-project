@@ -1,5 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
+	import { BASE_URL } from '$lib/constants';
 	export let form;
 	$: console.log(form);
 </script>

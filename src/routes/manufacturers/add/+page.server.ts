@@ -1,6 +1,4 @@
-// Define the base URL for the API
 import { BASE_URL } from '$lib/constants';
-
 // Disable TLS/SSL certificate verification for Node.js HTTPS requests
 // This is generally not recommended for production use
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';

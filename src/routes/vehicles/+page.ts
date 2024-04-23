@@ -7,7 +7,6 @@ export async function load({ fetch }: PageLoadEvent) {
 	try {
 		const res = await fetch(`${BASE_URL}/api/vehicles`);
 		const vehicles: Vehicle[] = await res.json();
-		console.log('vehicles', vehicles);
 		return { vehicles };
 	} catch (error) {
 		console.error(error);

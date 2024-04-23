@@ -14,8 +14,8 @@
 		/>
 		<div class="my-2 flex justify-end gap-2">
 			<button class="bg-blue-500 px-2 py-1 text-white hover:bg-blue-700">Filter</button>
-			<button class="bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-				><a href="/manufacturers/add">+ Add</a></button
+			<button class="w-32 bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
+				><a href="/vehicles/add">+ Add</a></button
 			>
 		</div>
 	</div>
