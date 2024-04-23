@@ -34,7 +34,7 @@
 	};
 </script>
 
-<div class="col-span-3 p-2">
+<div class="col-span-4 p-2">
 	<form on:submit|preventDefault={() => alert(`You chose ${selectedManufacturerId}`)}>
 		<input
 			type="search"

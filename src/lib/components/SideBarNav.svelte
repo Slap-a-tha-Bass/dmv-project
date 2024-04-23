@@ -4,7 +4,9 @@
 	$: currentURL = $page.url.pathname;
 </script>
 
-<aside class="col-span-1 grid bg-gradient-to-b from-indigo-300 to-indigo-600 p-2 leading-loose">
+<aside
+	class="fixed left-0 top-11 h-full w-44 overflow-y-auto bg-gradient-to-b from-indigo-300 to-indigo-600 p-2 leading-loose"
+>
 	<nav>
 		<ul>
 			<li>

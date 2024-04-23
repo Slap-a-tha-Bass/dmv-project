@@ -1,9 +1,10 @@
 import { BASE_URL } from '$lib/constants';
+import type { Actions } from '@sveltejs/kit';
 // Disable TLS/SSL certificate verification for Node.js HTTPS requests
 // This is generally not recommended for production use
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
-export const actions = {
+export const actions: Actions = {
 	// The default action that gets called when a request is made to this endpoint
 	default: async ({ request }) => {
 		try {

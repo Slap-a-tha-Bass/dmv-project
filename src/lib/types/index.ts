@@ -22,3 +22,13 @@ export interface Vehicle {
 	Inspected?: boolean;
 	EngineCylinders?: number;
 }
+
+export interface Person {
+	Id?: string;
+	FirstName?: string;
+	MiddleInitial?: string;
+	LastName?: string;
+	DateOfBirth?: string;
+	Gender?: string;
+	AlabamaCitizen?: boolean;
+}

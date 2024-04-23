@@ -4,7 +4,7 @@
 	let inspected = false;
 </script>
 
-<div class="col-span-3 p-2">
+<div class="col-span-4 p-2">
 	{#if form?.message}
 		<div class="flex flex-col items-center justify-center gap-2">
 			<p>{form.message}</p>

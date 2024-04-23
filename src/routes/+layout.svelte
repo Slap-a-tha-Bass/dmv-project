@@ -5,7 +5,7 @@
 </script>
 
 <Header />
-<div class="grid grid-cols-4">
+<div class="ml-44 mt-11 grid grid-cols-4">
 	<SideBarNav />
 	<slot />
 </div>

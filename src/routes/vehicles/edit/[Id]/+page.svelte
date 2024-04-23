@@ -8,7 +8,7 @@
 	}
 </script>
 
-<div class="col-span-3 p-2">
+<div class="col-span-4 p-2">
 	<h1 class="text-xl">Edit Manufacturer</h1>
 	{#if vehicle}
 		<form>
