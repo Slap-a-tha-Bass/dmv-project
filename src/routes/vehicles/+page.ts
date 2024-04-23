@@ -6,8 +6,10 @@ const BASE_URL = 'https://localhost:44357';
 export async function load({ fetch }: PageLoadEvent) {
 	try {
 		const res = await fetch(`${BASE_URL}/api/vehicles`);
+		const res2 = await fetch(`${BASE_URL}/api/manufacturers`);
 		const vehicles: Vehicle[] = await res.json();
-		return { vehicles };
+		const manufacturers = await res2.json();
+		return { vehicles, manufacturers };
 	} catch (error) {
 		console.error(error);
 	}

@@ -19,10 +19,10 @@
 </script>
 
 {#each manufacturers ?? [] as manufacturer}
-	<div class="grid grid-cols-3 py-2">
+	<div class="grid grid-cols-3 gap-2 border-b-2 border-black py-2">
 		<div>
-			<p class="text-sm">{manufacturer.Name}</p>
-			<p class="text-xs text-gray-400">{manufacturer.Id}</p>
+			<p class="text-md">{manufacturer.Name}</p>
+			<p class="bg-gray-200 p-1 text-xs text-red-700">{manufacturer.Id}</p>
 		</div>
 		<p class="text-sm">{manufacturer.CountyOfOrigin}</p>
 		<div class="flex justify-end gap-2">

@@ -31,7 +31,11 @@
 		</div>
 	</form>
 	<div class="grid grid-cols-3 border-b-2 border-black">
-		<p class="text-lg">Name</p>
+		<p class="text-lg">
+			Name
+			<br />
+			<span class="bg-gray-200 text-sm text-red-700"> Manufacturer Id </span>
+		</p>
 		<p class="text-lg">Country of Origin</p>
 		<p class="flex justify-end text-lg">Actions</p>
 	</div>

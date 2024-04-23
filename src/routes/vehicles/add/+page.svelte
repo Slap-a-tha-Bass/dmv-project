@@ -13,6 +13,12 @@
 			>
 		</div>
 	{:else}
+		<p class="bolder text-xs italic">
+			*If unsure about Manufacturer Id, visit our <a
+				class="text-blue-700 underline"
+				href="/manufacturers">Manufacturers</a
+			> page.
+		</p>
 		<form use:enhance method="POST">
 			<label for="ManufacturerId" class="block text-sm font-medium text-gray-700"
 				>Manufacturer ID</label
