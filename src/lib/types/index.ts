@@ -1,7 +1,7 @@
 export interface Manufacturer {
 	Id?: string;
 	Name: string;
-	CountyOfOrigin: string;
+	CountryOfOrigin: string;
 }
 
 export interface Vehicle {

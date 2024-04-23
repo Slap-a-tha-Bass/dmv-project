@@ -10,7 +10,7 @@
 		? manufacturers?.filter(
 				(manufacturer) =>
 					manufacturer.Name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-					manufacturer.CountyOfOrigin.toLowerCase().includes(searchQuery.toLowerCase())
+					manufacturer.CountryOfOrigin.toLowerCase().includes(searchQuery.toLowerCase())
 			)
 		: allManufacturers;
 </script>
