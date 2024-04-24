@@ -1,5 +1,6 @@
 <script lang="ts">
 	import VehicleList from '$lib/components/VehicleList.svelte';
+	import Button from '$lib/controls/Button.svelte';
 
 	export let data;
 	const allVehicles = data.vehicles;
@@ -19,14 +20,6 @@
 		? vehicles?.filter((vehicle) => vehicle.ManufacturerId === selectedManufacturerId)
 		: vehicles;
 
-	// Logs for debugging
-	$: if (selectedManufacturerId) {
-		console.log('selectedManufacturerId:', selectedManufacturerId);
-		console.log('filtered vehicles:', vehicles);
-	} else if (selectedManufacturerId === '') {
-		console.log('selectedManufacturerId:', selectedManufacturerId);
-		console.log('filtered vehicles:', vehicles);
-	}
 	const resetFilters = () => {
 		searchQuery = '';
 		selectedManufacturerId = '';
@@ -55,16 +48,10 @@
 		</select>
 	</form>
 	{#if searchQuery || selectedManufacturerId}
-		<button
-			type="button"
-			on:click={resetFilters}
-			class="mt-4 bg-red-500 px-2 py-1 text-white hover:bg-red-700">Clear Search</button
-		>
+		<Button text="Clear Search" color="red" onClick={resetFilters} />
 	{/if}
 	<div class="my-2 flex justify-end gap-2">
-		<button class="w-32 bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-			><a href="/vehicles/add">+ Add</a></button
-		>
+		<Button text="+ Add" color="blue" href="/vehicles/add" />
 	</div>
 
 	<div class="grid grid-cols-3 border-b-2 border-black">

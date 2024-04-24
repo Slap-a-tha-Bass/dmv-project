@@ -1,5 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
+	import Button from '$lib/controls/Button.svelte';
 	export let form;
 	let inspected = 'false';
 </script>
@@ -8,9 +9,7 @@
 	{#if form?.message}
 		<div class="flex flex-col items-center justify-center gap-2">
 			<p>{form.message}</p>
-			<button class="bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-				><a href="/vehicles">View Vehicles</a></button
-			>
+			<Button text="View Vehicles" color="blue" href="/vehicles" />
 		</div>
 	{:else}
 		<p class="bolder text-xs italic">
@@ -173,9 +172,7 @@
 				class="w-full rounded-none border border-black px-2 outline-none focus:border-indigo-600"
 			/>
 			<div class="my-2 flex justify-center gap-2">
-				<button type="submit" class="bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-					>Save</button
-				>
+				<Button type="submit" text="Save" color="blue" />
 			</div>
 		</form>
 	{/if}

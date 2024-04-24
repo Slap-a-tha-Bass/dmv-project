@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PeopleList from '$lib/components/PeopleList.svelte';
+	import Button from '$lib/controls/Button.svelte';
 
 	export let data;
 	const allPeople = data.people;
@@ -25,9 +26,7 @@
 		/>
 
 		<div class="my-2 flex justify-end gap-2">
-			<button class="w-32 bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-				><a href="/people/add">+ Add</a></button
-			>
+			<Button text="+ Add" color="blue" href="/people/add" />
 		</div>
 	</form>
 	<div class="grid grid-cols-4 border-b-2 border-black">

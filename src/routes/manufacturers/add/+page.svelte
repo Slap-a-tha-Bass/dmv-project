@@ -1,6 +1,7 @@
 <script>
 	import { enhance } from '$app/forms';
 	import { BASE_URL } from '$lib/constants';
+	import Button from '$lib/controls/Button.svelte';
 	export let form;
 	$: console.log(form);
 </script>
@@ -34,9 +35,7 @@
 				required
 			/>
 			<div class="my-2 flex justify-center gap-2">
-				<button type="submit" class="bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-					>Save</button
-				>
+				<Button type="submit" text="Save" color="blue" />
 			</div>
 		</form>
 	{/if}
