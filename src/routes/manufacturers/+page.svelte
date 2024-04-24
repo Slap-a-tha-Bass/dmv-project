@@ -24,9 +24,8 @@
 			placeholder="Search..."
 			bind:value={searchQuery}
 		/>
-
 		<div class="my-2 flex justify-end gap-2">
-			<Button text="+ Add" color="blue" href="/manufacturers/add" />
+			<Button text="+ Add" href="/manufacturers/add" />
 		</div>
 	</form>
 	<div class="grid grid-cols-3 border-b-2 border-black">

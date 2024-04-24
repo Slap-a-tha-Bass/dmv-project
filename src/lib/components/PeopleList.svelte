@@ -22,7 +22,7 @@
 </script>
 
 {#each people ?? [] as person}
-	<div class="grid grid-cols-4 gap-2 border-b-2 border-black py-2">
+	<div class="grid grid-cols-4 items-center gap-2 border-b-2 border-black py-2">
 		<div>
 			<p class="text-md">{person.FirstName} {person.MiddleInitial} {person.LastName}</p>
 		</div>

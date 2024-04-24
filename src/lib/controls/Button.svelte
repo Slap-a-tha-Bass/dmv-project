@@ -13,18 +13,14 @@
 
 {#if href}
 	<!-- Render as a link if an href is provided -->
-	<a {href} class={baseClass(color)}>
+	<a {href} class={baseClass(color)} on:click|preventDefault>
 		<button>
 			{text}
 		</button>
 	</a>
 {:else}
 	<!-- Render as a button if no href is provided -->
-	<button
-		{type}
-		class={baseClass(color) + (color === 'red' ? ' font-bold' : '')}
-		on:click={onClick}
-	>
+	<button {type} class={baseClass(color)} on:click={onClick}>
 		{text}
 	</button>
 {/if}
