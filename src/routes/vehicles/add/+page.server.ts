@@ -35,6 +35,8 @@ export const actions: Actions = {
 			formData.append('Inspected', inspected ? 'true' : 'false');
 			formData.append('EngineCylinders', data.get('EngineCylinders')?.toString() || '');
 
+			console.log('formData', formData);
+
 			// Make a POST request to the '/api/vehicles' endpoint of the API
 			const response = await fetch(`${BASE_URL}/api/vehicles`, {
 				method: 'POST',

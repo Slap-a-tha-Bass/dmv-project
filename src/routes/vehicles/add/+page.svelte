@@ -1,7 +1,7 @@
 <script>
 	import { enhance } from '$app/forms';
 	export let form;
-	let inspected = false;
+	let inspected = 'false';
 </script>
 
 <div class="col-span-4 p-2">
@@ -142,8 +142,25 @@
 			/>
 			<div class="mt-4">
 				<label class="inline-flex items-center">
-					<input type="checkbox" name="Inspected" bind:checked={inspected} class="form-checkbox" />
-					<span class="ml-2">Inspected</span>
+					<input
+						type="radio"
+						name="Inspected"
+						bind:group={inspected}
+						value="true"
+						class="form-radio"
+					/>
+					<span class="ml-2">Yes</span>
+				</label>
+				<label class="inline-flex items-center">
+					<input
+						type="radio"
+						name="Inspected"
+						bind:group={inspected}
+						value="false"
+						class="form-radio"
+						checked
+					/>
+					<span class="ml-2">No</span>
 				</label>
 			</div>
 			<label for="EngineCylinders" class="block text-sm font-medium text-gray-700"

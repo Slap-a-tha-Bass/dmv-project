@@ -6,6 +6,7 @@
 	if (vehicle) {
 		vehicle.RegistrationExpiration = convertDateFormat(vehicle.RegistrationExpiration);
 	}
+	console.log('vehicle', vehicle);
 </script>
 
 <div class="col-span-4 p-2">
