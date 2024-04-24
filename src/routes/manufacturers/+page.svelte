@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ManufacturerList from '$lib/components/ManufacturerList.svelte';
+	import Button from '$lib/controls/Button.svelte';
 
 	export let data;
 	const allManufacturers = data.manufacturers;
@@ -25,9 +26,7 @@
 		/>
 
 		<div class="my-2 flex justify-end gap-2">
-			<button class="w-32 bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-				><a href="/manufacturers/add">+ Add</a></button
-			>
+			<Button text="+ Add" color="blue" href="/manufacturers/add" />
 		</div>
 	</form>
 	<div class="grid grid-cols-3 border-b-2 border-black">
