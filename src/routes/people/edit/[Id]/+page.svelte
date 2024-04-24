@@ -1,35 +1,43 @@
 <script lang="ts">
 	import { BASE_URL } from '$lib/constants';
-	export let data;
+	import { updateFormData } from '$lib/helpers/update';
+	export let data = {
+		person: {
+			FirstName: '',
+			MiddleInitial: '',
+			LastName: '',
+			DateOfBirth: '',
+			Gender: '',
+			AlabamaCitizen: false
+		}
+	};
 	const { person } = data;
-	console.log('person', person);
+
 	let formMessage = '';
-
-	// const handleSubmit = async () => {
-	// 	try {
-	// 		const formData = new URLSearchParams();
-	// 		formData.append('FirstName', person.FirstName);
-	// 		formData.append('LastName', person.LastName);
-	// 		formData.append('DateOfBirth', person.DateOfBirth);
-	// 		formData.append('Gender', person.Gender);
-	// 		formData.append('AlabamaCitizen', person.AlabamaCitizen.toString());
-
-	// 		const response = await fetch(`${BASE_URL}/api/people/${person.Id}`, {
-	// 			method: 'PUT',
-	// 			headers: {
-	// 				'Content-Type': 'application/x-www-form-urlencoded'
-	// 			},
-	// 			body: formData
-	// 		});
-	// 		if (!response.ok) {
-	// 			throw new Error(`HTTP error! status: ${response.status}`);
-	// 		}
-	// 		formMessage = 'Person updated successfully';
-	// 	} catch (error) {
-	// 		console.error('Error:', error);
-	// 		formMessage = `An error occurred while updating the person: ${(error as Error).message}`;
-	// 	}
-	// };
+	// Convert date to YYYY-MM-DD format
+	const formatDate = (dateStr: string) => {
+		return dateStr.split('T')[0];
+	};
+	// Need to format date so that it can be displayed in the date input field
+	$: if (person.DateOfBirth) {
+		person.DateOfBirth = formatDate(person.DateOfBirth);
+	}
+	const handleSubmit = async () => {
+		const { message, error } = await updateFormData({
+			url: `${BASE_URL}/api/people/${person.Id}`,
+			entries: {
+				FirstName: person.FirstName,
+				MiddleInitial: person.MiddleInitial,
+				LastName: person.LastName,
+				DateOfBirth: person.DateOfBirth,
+				Gender: person.Gender,
+				AlabamaCitizen: person.AlabamaCitizen
+			},
+			successMessage: 'Person updated successfully',
+			errorMessagePrefix: 'An error occurred while updating the person: '
+		});
+		formMessage = message ?? error ?? '';
+	};
 </script>
 
 <div class="col-span-4 p-2">
@@ -40,10 +48,10 @@
 	{:else}
 		<h1 class="text-xl">Edit Person</h1>
 		{#if person}
-			<form on:submit|preventDefault>
+			<form on:submit|preventDefault={handleSubmit}>
 				<label for="FirstName" class="block text-sm font-medium text-gray-700">First Name</label>
 				<input
-					value={person.FirstName}
+					bind:value={person.FirstName}
 					type="text"
 					name="FirstName"
 					id="FirstName"
@@ -53,7 +61,7 @@
 
 				<label for="LastName" class="block text-sm font-medium text-gray-700">Last Name</label>
 				<input
-					value={person.LastName}
+					bind:value={person.LastName}
 					type="text"
 					name="LastName"
 					id="LastName"
@@ -66,7 +74,7 @@
 				>
 				<input
 					type="date"
-					value={person.DateOfBirth}
+					bind:value={person.DateOfBirth}
 					name="DateOfBirth"
 					id="DateOfBirth"
 					class="w-full rounded-none border border-black px-2 outline-none focus:border-indigo-600"
@@ -77,13 +85,13 @@
 				<select
 					name="Gender"
 					id="Gender"
-					value={person.Gender}
+					bind:value={person.Gender}
 					class="w-full rounded-none border border-black px-2 outline-none focus:border-indigo-600"
 					required
 				>
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
-					<option value="Other">Other</option>
+					<option value="male">Male</option>
+					<option value="female">Female</option>
+					<option value="not provided">Not Provided</option>
 				</select>
 
 				<div class="mt-4">

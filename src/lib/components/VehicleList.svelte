@@ -2,6 +2,7 @@
 	import type { Vehicle } from '$lib/types';
 	import { convertDateFormat } from '$lib/helpers';
 	import { BASE_URL } from '$lib/constants';
+	import Button from '$lib/controls/Button.svelte';
 	export let vehicles: Vehicle[] = [];
 
 	// Function to delete a vehicle
@@ -19,20 +20,14 @@
 	};
 </script>
 
-<div class="col-span-3 p-2">
+<div class="col-span-4">
 	{#each vehicles ?? [] as vehicle}
-		<div class="grid grid-cols-3 py-2">
+		<div class="grid grid-cols-3 items-center border-b-2 border-black py-2">
 			<p class="text-sm">{vehicle.Model}</p>
 			<p class="text-sm">{convertDateFormat(vehicle.RegistrationExpiration)}</p>
-			<div class="flex justify-end gap-2">
-				<button class="bg-blue-500 px-2 py-1 font-bold text-white hover:bg-blue-700">
-					<a href={`/vehicles/edit/${vehicle.Id}`}>Edit</a>
-				</button>
-				<button
-					on:click={() => deleteVehicle(vehicle.Id ?? '')}
-					class="delete bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-700"
-					>Delete
-				</button>
+			<div class="flex items-center justify-end gap-2">
+				<Button text="Edit" color="blue" href={`/vehicles/edit/${vehicle.Id}`} />
+				<Button text="Delete" color="red" on:click={() => deleteVehicle(vehicle.Id ?? '')} />
 			</div>
 		</div>
 	{/each}

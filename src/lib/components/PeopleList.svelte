@@ -2,6 +2,7 @@
 	import type { Person } from '$lib/types';
 	import { BASE_URL } from '$lib/constants';
 	import { convertDateFormat } from '$lib/helpers';
+	import Button from '$lib/controls/Button.svelte';
 
 	export let people: Person[] = [];
 
@@ -29,12 +30,8 @@
 		<p class="text-sm">{convertDateFormat(person.DateOfBirth ?? '')}</p>
 		<p class="text-sm">{person.AlabamaCitizen === true ? 'Yes' : 'No'}</p>
 		<div class="flex justify-end gap-2">
-			<button class="bg-blue-500 px-2 py-1 font-bold text-white hover:bg-blue-700"
-				><a href={`/people/edit/${person.Id}`}>Edit</a></button
-			>
-			<button
-				on:click={() => deletePerson(person.Id ?? '')}
-				class="delete bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-700">Delete</button
+			<Button text="Edit" color="blue" href={`/people/edit/${person.Id}`}>Edit</Button>
+			<Button text="Delete" color="red" onClick={() => deletePerson(person.Id ?? '')}>Delete</Button
 			>
 		</div>
 	</div>

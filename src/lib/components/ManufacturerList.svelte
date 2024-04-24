@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Manufacturer } from '$lib/types/index';
+	import Button from '$lib/controls/Button.svelte';
 	export let manufacturers: Manufacturer[] = [];
 	import { BASE_URL } from '$lib/constants';
 
@@ -19,20 +20,15 @@
 </script>
 
 {#each manufacturers ?? [] as manufacturer}
-	<div class="grid grid-cols-3 gap-2 border-b-2 border-black py-2">
+	<div class="grid grid-cols-3 items-center gap-2 border-b-2 border-black py-2">
 		<div>
 			<p class="text-md">{manufacturer.Name}</p>
 			<p class="bg-gray-200 p-1 text-xs text-red-700">{manufacturer.Id}</p>
 		</div>
 		<p class="text-sm">{manufacturer.CountryOfOrigin}</p>
 		<div class="flex justify-end gap-2">
-			<button class="bg-blue-500 px-2 py-1 font-bold text-white hover:bg-blue-700"
-				><a href={`/manufacturers/edit/${manufacturer.Id}`}>Edit</a></button
-			>
-			<button
-				on:click={() => deleteManufacturer(manufacturer.Id ?? '')}
-				class="delete bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-700">Delete</button
-			>
+			<Button text="Edit" color="blue" href={`/manufacturers/edit/${manufacturer.Id}`} />
+			<Button text="Delete" color="red" onClick={() => deleteManufacturer(manufacturer.Id ?? '')} />
 		</div>
 	</div>
 {/each}

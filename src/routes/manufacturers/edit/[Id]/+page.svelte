@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { BASE_URL } from '$lib/constants';
+	import Button from '$lib/controls/Button.svelte';
+	import { updateFormData } from '$lib/helpers/update';
 	export let data = {
 		manufacturer: {
 			Name: '',
@@ -9,31 +11,16 @@
 	const { manufacturer } = data;
 	let formMessage = '';
 	const handleSubmit = async () => {
-		try {
-			const formData = new URLSearchParams();
-			// Append the 'Name' and 'CountryOfOrigin' fields to the formData
-			formData.append('Name', manufacturer?.Name ? manufacturer.Name.toString() : '');
-			formData.append(
-				'CountryOfOrigin',
-				manufacturer?.CountryOfOrigin ? manufacturer.CountryOfOrigin.toString() : ''
-			);
-			const response = await fetch(`${BASE_URL}/api/manufacturers/${manufacturer?.Id}`, {
-				method: 'PUT',
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				},
-				body: formData
-			});
-			// If the response was not ok, throw an error
-			if (!response.ok) {
-				throw new Error(`HTTP error! status: ${response.status}`);
-			}
-
-			formMessage = 'Manufacturer updated successfully';
-		} catch (error) {
-			console.error('Error:', error);
-			formMessage = `An error occurred while updating the manufacturer: ${(error as Error).message}`;
-		}
+		const { message, error } = await updateFormData({
+			url: `${BASE_URL}/api/manufacturers/${manufacturer.Id}`,
+			entries: {
+				Name: manufacturer.Name,
+				CountryOfOrigin: manufacturer.CountryOfOrigin
+			},
+			successMessage: 'Manufacturer updated successfully',
+			errorMessagePrefix: 'An error occurred while updating the manufacturer: '
+		});
+		formMessage = message ?? error ?? '';
 	};
 </script>
 
@@ -48,7 +35,7 @@
 			<form on:submit|preventDefault={handleSubmit}>
 				<label for="Name" class="block text-sm font-medium text-gray-700">Manufacturer Name</label>
 				<input
-					value={manufacturer.Name}
+					bind:value={manufacturer.Name}
 					type="text"
 					name="Name"
 					id="Name"
@@ -65,9 +52,7 @@
 					class="w-full rounded-none border border-black px-2 outline-none focus:border-indigo-600"
 				/>
 				<div class="my-2 flex justify-center gap-2">
-					<button type="submit" class="bg-blue-500 px-2 py-1 text-white hover:bg-blue-700"
-						>Save</button
-					>
+					<Button type="submit" text="Save" color="blue" />
 				</div>
 			</form>
 		{/if}
